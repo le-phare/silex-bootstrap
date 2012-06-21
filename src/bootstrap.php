@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/../vendor/.composer/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
@@ -27,7 +27,7 @@ $app['db.options'] = array(
 
 $app->before(function() use ($app) {
     $app['db.dumb'] = $app->share(function($app) {
-        return new DumbRepository($app['db']); 
+        return new DumbRepository($app['db']);
     });
 });
 
