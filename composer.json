@@ -1,4 +1,6 @@
 {
+    "name": "le-phare/silex-bootstrap",
+    "description": "Sandbox for execution and integration",
     "require": {
         "silex/silex": "1.*",
         "twig/twig": "1.*",
