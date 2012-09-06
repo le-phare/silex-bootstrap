@@ -1,5 +1,5 @@
 {
-    "hash": "9e2121b75443c718553a6282737ece62",
+    "hash": "40467b606621a4846ce88ddce40b2070",
     "packages": [
         {
             "package": "fate/silex-extensions",
@@ -16,8 +16,8 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "0410297526eacc3aa2146b55bc4e30e6fd3a50ed",
-            "commit-date": "1346167888"
+            "source-reference": "86b637e9f64ddcbd17d9eda944384812b5836254",
+            "commit-date": "1346695911"
         },
         {
             "package": "leafo/lessphp",
@@ -44,8 +44,8 @@
         {
             "package": "silex/silex",
             "version": "dev-master",
-            "source-reference": "52c6480be194825489f316d30855645dafa7fae4",
-            "commit-date": "1346332220"
+            "source-reference": "73b18ef69f74d878465dba0836ad96affc6c820c",
+            "commit-date": "1346766167"
         },
         {
             "package": "symfony/config",
@@ -56,7 +56,7 @@
         {
             "package": "symfony/config",
             "version": "dev-master",
-            "source-reference": "v2.1.0-RC2",
+            "source-reference": "v2.1.0",
             "commit-date": "1345643321"
         },
         {
@@ -68,7 +68,7 @@
         {
             "package": "symfony/event-dispatcher",
             "version": "dev-master",
-            "source-reference": "v2.1.0-RC2",
+            "source-reference": "v2.1.0",
             "commit-date": "1345643321"
         },
         {
@@ -80,7 +80,7 @@
         {
             "package": "symfony/finder",
             "version": "dev-master",
-            "source-reference": "v2.1.0-RC2",
+            "source-reference": "v2.1.0",
             "commit-date": "1345643321"
         },
         {
@@ -92,8 +92,8 @@
         {
             "package": "symfony/http-foundation",
             "version": "dev-master",
-            "source-reference": "c61c023d2e9e9ad2edcc9227bd0ec5f79d616e18",
-            "commit-date": "1346312580"
+            "source-reference": "v2.1.0",
+            "commit-date": "1346761482"
         },
         {
             "package": "symfony/http-kernel",
@@ -104,8 +104,8 @@
         {
             "package": "symfony/http-kernel",
             "version": "dev-master",
-            "source-reference": "aeffdc93a69b65dad2f61c917f73c84b8e387ba4",
-            "commit-date": "1346143430"
+            "source-reference": "d5aec858319b3f7baf945a0fc4b2acc15e4065fd",
+            "commit-date": "1346926365"
         },
         {
             "package": "symfony/process",
@@ -116,7 +116,7 @@
         {
             "package": "symfony/process",
             "version": "dev-master",
-            "source-reference": "9d4ac6860929f84e68732d1793cd2edb0881d955",
+            "source-reference": "v2.1.0",
             "commit-date": "1346330945"
         },
         {
@@ -128,8 +128,8 @@
         {
             "package": "symfony/routing",
             "version": "dev-master",
-            "source-reference": "475c0550543c882a7e31b9aca7a5dc0615f59547",
-            "commit-date": "1346394981"
+            "source-reference": "v2.1.0",
+            "commit-date": "1346859854"
         },
         {
             "package": "symfony/translation",
