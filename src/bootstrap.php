@@ -56,7 +56,7 @@ $app->register(new AsseticExtension(), array(
         'auto_dump_assets' => true,
     ),
     'assetic.filters' => $app->protect(function($fm) {
-        $fm->set('less', new Assetic\Filter\LessphpFilter());
+        $fm->set('lessphp', new Assetic\Filter\LessphpFilter());
     })
 ));
 
