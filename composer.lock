@@ -1,11 +1,17 @@
 {
-    "hash": "607e936efd52449fe1b9ab901bcf2230",
+    "hash": "40467b606621a4846ce88ddce40b2070",
     "packages": [
         {
             "package": "fate/silex-extensions",
             "version": "dev-master",
             "source-reference": "686eca24e1e09b05fd9b75447678bb0eca795d24",
             "commit-date": "1344586528"
+        },
+        {
+            "package": "kriswallsmith/assetic",
+            "version": "dev-master",
+            "alias-pretty-version": "1.1.x-dev",
+            "alias-version": "1.1.9999999.9999999-dev"
         },
         {
             "package": "kriswallsmith/assetic",
@@ -59,7 +65,9 @@
         },
         {
             "package": "symfony/http-kernel",
-            "version": "v2.1.0"
+            "version": "2.1.x-dev",
+            "source-reference": "ec5cdb100c20537e9d806facd4d121c985658e8b",
+            "commit-date": "1346926323"
         },
         {
             "package": "symfony/process",
@@ -98,7 +106,7 @@
     "aliases": [
 
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [
 
     ]
