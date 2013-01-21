@@ -5,7 +5,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
-use SilexExtension\AsseticExtension;
+use SilexAssetic\AsseticExtension;
 
 $app = new Silex\Application();
 
