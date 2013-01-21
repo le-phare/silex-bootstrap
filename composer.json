@@ -2,13 +2,13 @@
     "name": "le-phare/silex-bootstrap",
     "description": "Sandbox for execution and integration",
     "require": {
-        "silex/silex": "1.*",
+        "silex/silex": "1.*@dev",
         "twig/twig": "1.*",
         "symfony/twig-bridge": "2.1.*",
         "symfony/translation": "2.1.*",
         "symfony/config": "2.1.*",
         "symfony/yaml": "2.1.*",
-        "fate/Silex-Extensions": "*",
+        "mheap/Silex-Assetic" : "*@dev",
         "kriswallsmith/assetic": "*",
         "symfony/finder": "2.1.*",
         "leafo/lessphp": "0.3.*"
@@ -16,5 +16,5 @@
     "autoload": {
         "psr-0": { "Repository": "src/"}
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
