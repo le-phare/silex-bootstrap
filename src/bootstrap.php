@@ -59,10 +59,10 @@ $app->register(new AsseticExtension(), array(
     }),
     'assetic.assets' => $app->protect(function($am, $fm) {
         $am->set('styles', new Assetic\Asset\AssetCache(
-            new Assetic\Asset\AssetCollection(
+            new Assetic\Asset\AssetCollection(array(
                 new Assetic\Asset\FileAsset(__DIR__ . '/../web/less/styles.less', array($fm->get('lessphp'))),
-                new Assetic\Asset\FileAsset(__DIR__ . '/../web/less/project.less', array($fm->get('lessphp')))
-            ),
+                new Assetic\Asset\FileAsset(__DIR__ . '/../web/less/project.less',  array($fm->get('lessphp'))),
+            )),
             new Assetic\Cache\FilesystemCache(__DIR__.'/../cache/assetic')
         ));
         $am->get('styles')->setTargetPath('compiled/styles.css');
