@@ -16,7 +16,7 @@ $app['debug'] = true;
 //
 $app->register(new TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/templates',
-    'twig.options' => array('cache' => false),
+    'twig.options' => array( 'cache' => __DIR__.'/../cache/twig'),
 ));
 
 //
@@ -52,11 +52,20 @@ $app->register(new AsseticExtension(), array(
     'assetic.class_path' => __DIR__.'/vendor/assetic/src',
     'assetic.path_to_web' => __DIR__ . '/../web',
     'assetic.options' => array(
-        'debug' => $app['debug'],
-        'auto_dump_assets' => true,
+        'debug' => false
     ),
     'assetic.filters' => $app->protect(function($fm) {
         $fm->set('lessphp', new Assetic\Filter\LessphpFilter());
+    }),
+    'assetic.assets' => $app->protect(function($am, $fm) {
+        $am->set('styles', new Assetic\Asset\AssetCache(
+            new Assetic\Asset\AssetCollection(
+                new Assetic\Asset\FileAsset(__DIR__ . '/../web/less/styles.less', array($fm->get('lessphp'))),
+                new Assetic\Asset\FileAsset(__DIR__ . '/../web/less/project.less', array($fm->get('lessphp')))
+            ),
+            new Assetic\Cache\FilesystemCache(__DIR__.'/../cache/assetic')
+        ));
+        $am->get('styles')->setTargetPath('compiled/styles.css');
     })
 ));
 

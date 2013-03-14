@@ -11,12 +11,7 @@
   <title>{% block title %}{{ 'global.title'|trans }}{% endblock %}</title>
 
   {% block stylesheets %}
-    {# Les quelques lignes suivantes servent à compiler automatiquement le fichier less en fichier CSS #}
-    {% stylesheets filter="lessphp" output='/compiled/styles.css'
-        'less/styles.less'
-    %}
-    <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
-    {% endstylesheets %}
+    <link rel="stylesheet" type="text/css" href="/compiled/styles.css" />
 
     <!--[if IE 7]>
       <link rel="stylesheet" href="/libs/Font-Awesome/css/font-awesome-ie7.css">
