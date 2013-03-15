@@ -16,7 +16,10 @@ $app['debug'] = true;
 //
 $app->register(new TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/templates',
-    'twig.options' => array( 'cache' => __DIR__.'/../cache/twig'),
+    'twig.options' => array(
+        'cache' => __DIR__.'/../cache/twig',
+        'debug' => $app['debug']
+    ),
 ));
 
 //
