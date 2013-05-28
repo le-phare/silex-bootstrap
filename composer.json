@@ -8,8 +8,8 @@
         "symfony/translation": "2.1.*",
         "symfony/config": "2.1.*",
         "symfony/yaml": "2.1.*",
-        "mheap/Silex-Assetic" : "*@dev",
-        "kriswallsmith/assetic": "*",
+        "mheap/silex-assetic" : "1.0.*@dev",
+        "kriswallsmith/assetic": "1.1.0-alpha4",
         "symfony/finder": "2.1.*",
         "leafo/lessphp": "0.3.*"
     },
