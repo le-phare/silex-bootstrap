@@ -2,10 +2,15 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-use Silex\Provider\TwigServiceProvider;
+use Assetic\Asset\AssetCache;
+use Assetic\Asset\AssetCollection;
+use Assetic\Asset\FileAsset;
+use Assetic\Cache\FilesystemCache;
+use Assetic\Filter\LessphpFilter;
+use SilexAssetic\AsseticServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
+use Silex\Provider\TwigServiceProvider;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
-use SilexAssetic\AsseticExtension;
 
 $app = new Silex\Application();
 
@@ -51,25 +56,31 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 //
 // Assetic
 //
-$app->register(new AsseticExtension(), array(
-    'assetic.class_path' => __DIR__.'/vendor/assetic/src',
-    'assetic.path_to_web' => __DIR__ . '/../web',
-    'assetic.options' => array(
-        'debug' => false
-    ),
-    'assetic.filters' => $app->protect(function($fm) {
-        $fm->set('lessphp', new Assetic\Filter\LessphpFilter());
-    }),
-    'assetic.assets' => $app->protect(function($am, $fm) {
-        $am->set('styles', new Assetic\Asset\AssetCache(
-            new Assetic\Asset\AssetCollection(array(
-                new Assetic\Asset\FileAsset(__DIR__ . '/../web/less/styles.less', array($fm->get('lessphp'))),
-                new Assetic\Asset\FileAsset(__DIR__ . '/../web/less/project.less',  array($fm->get('lessphp'))),
+$app->register(new AsseticServiceProvider());
+$app['assetic.path_to_web'] = __DIR__ . '/../web';
+$app['assetic.options'] = array(
+    'debug' => false,
+);
+$app['assetic.filter_manager'] = $app->share(
+    $app->extend('assetic.filter_manager', function($fm, $app) {
+        $fm->set('lessphp', new LessphpFilter());
+
+        return $fm;
+    })
+);
+$app['assetic.asset_manager'] = $app->share(
+    $app->extend('assetic.asset_manager', function($am, $app) {
+        $am->set('styles', new AssetCache(
+            new AssetCollection(array(
+                new FileAsset(realpath(__DIR__ . '/../web/less/styles.less'),   array($app['assetic.filter_manager']->get('lessphp'))),
+                new FileAsset(realpath(__DIR__ . '/../web/less/project.less'),  array($app['assetic.filter_manager']->get('lessphp'))),
             )),
-            new Assetic\Cache\FilesystemCache(__DIR__.'/../cache/assetic')
+            new FilesystemCache(__DIR__.'/../cache/assetic')
         ));
         $am->get('styles')->setTargetPath('compiled/styles.css');
+
+        return $am;
     })
-));
+);
 
 return $app;
