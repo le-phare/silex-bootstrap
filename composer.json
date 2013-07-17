@@ -12,7 +12,7 @@
         "kriswallsmith/assetic": "*",
         "symfony/finder": "2.1.*",
         "leafo/lessphp": "0.3.*",
-        "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev",
+        "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev"
     },
     "autoload": {
         "psr-0": { "Repository": "src/"}
