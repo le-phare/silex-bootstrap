@@ -1,0 +1,22 @@
+<!-- {%- block subject -%}{%- endblock -%} -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Document sans nom</title>
+  <style type="text/css">
+  {% block styles %}{% endblock %}
+</style>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#eeeeee">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#EEEEEE">
+        {% block header %}{% endblock header %}
+        {% block content %}{% endblock content %}
+        {% block footer %}{% endblock footer %}
+    </table>
+  </td>
+</tr>
+</table>
+</body>
+</html>
