@@ -12,6 +12,8 @@
 
   {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="/compiled/styles.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if IE 7]><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css"><![endif]-->
 
     <!--[if IE 7]>
       <link rel="stylesheet" href="/libs/Font-Awesome/css/font-awesome-ie7.css">
@@ -24,7 +26,7 @@
     <![endif]-->
   {% endblock %}
 </head>
-<body>
+<body {% if page.id is defined %}id="{{ page.id }}"{% endif %}{% if page.class is defined %} class="{% for class in page.class %}{{ class }} {% endfor %}"{% endif %}>
   {#
     Le block container_content sera surchargé dans tous les autres template.
     Le fichier layout.html.twig doit contient tout ce qui est commun à tout le site.
