@@ -55,10 +55,8 @@ $app->register(new SilexAssetic\AsseticServiceProvider());
 
 $app['assetic.path_to_web'] = __DIR__ . '/../web';
 $app['assetic.options'] = array(
-    'debug' => true,
+    'auto_dump_assets' => true,
 );
-$app['assetic.class_path'] = __DIR__.'/../vendor/assetic/src';
-
 $app['assetic.filter_manager'] = $app->share(
     $app->extend('assetic.filter_manager', function($fm, $app) {
         $fm->set('lessphp', new Assetic\Filter\LessphpFilter());
@@ -69,6 +67,7 @@ $app['assetic.filter_manager'] = $app->share(
 
 $app['assetic.asset_manager'] = $app->share(
     $app->extend('assetic.asset_manager', function($am, $app) {
+
         $am->set('styles', new Assetic\Asset\AssetCache(
             new Assetic\Asset\AssetCollection(array(
                 new Assetic\Asset\FileAsset(__DIR__ . '/../web/less/styles.less', array($app['assetic.filter_manager']->get('lessphp'))),
@@ -76,6 +75,7 @@ $app['assetic.asset_manager'] = $app->share(
             )),
             new Assetic\Cache\FilesystemCache(__DIR__.'/../cache/assetic')
         ));
+
         $am->get('styles')->setTargetPath('compiled/styles.css');
 
         return $am;
