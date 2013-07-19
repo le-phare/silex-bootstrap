@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+  <meta charset="utf-8">
+
+  {% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="/css/pdf.css" />
+  {% endblock stylesheets %}
+</head>
+
+<body>
+  {#
+    Le block container_content sera surchargé dans tous les autres template.
+    Le fichier layout.html.twig doit contient tout ce qui est commun à tout le site.
+    Ce commentaire ne sera pas présent dans la page HTML.
+  #}
+  {% block container_content %}{% endblock %}
+</body>
+
+</html>

@@ -57,7 +57,7 @@ $app['assetic.path_to_web'] = __DIR__ . '/../web';
 $app['assetic.options'] = array(
     'debug' => true,
 );
-$app['assetic.class_path'] = __DIR__.'/vendor/assetic/src';
+$app['assetic.class_path'] = __DIR__.'/../vendor/assetic/src';
 
 $app['assetic.filter_manager'] = $app->share(
     $app->extend('assetic.filter_manager', function($fm, $app) {
@@ -90,5 +90,19 @@ $app->register(new Silex\Provider\SwiftmailerServiceProvider());
 $app['swiftmailer.options'] = array(
     'host' => 'srvmail'
 );
+
+//
+// PDF
+//
+$app->register(new Grom\Silex\SnappyServiceProvider(), array(
+    'snappy.pdf_binary'   => __DIR__.'/../vendor/google/wkhtmltopdf-amd64/wkhtmltopdf-amd64',
+    'snappy.pdf_options' => array(
+        'margin-left'      => 0,
+        'margin-top'       => 0,
+        'margin-bottom'    => 0,
+        'margin-right'     => 0,
+        'encoding'         => 'UTF-8',
+    )
+));
 
 return $app;

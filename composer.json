@@ -1,8 +1,21 @@
 {
     "name": "le-phare/silex-bootstrap",
     "description": "Sandbox for execution and integration",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "google/wkhtmltopdf-amd64",
+                "version": "0.11.0-RC1",
+                "dist": {
+                    "url": "http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2",
+                    "type": "tar"
+                }
+            }
+        }
+    ],
     "require": {
-        "silex/silex": "1.*@dev",
+        "silex/silex": "1.*",
         "twig/twig": "1.*",
         "symfony/twig-bridge": "2.1.*",
         "symfony/translation": "2.1.*",
@@ -12,7 +25,10 @@
         "kriswallsmith/assetic": "*",
         "symfony/finder": "2.1.*",
         "leafo/lessphp": "0.3.*",
-        "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev"
+        "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev",
+        "google/wkhtmltopdf-amd64": "0.11.0-RC1",
+        "grom/silex-service-provider": "dev-master",
+        "knplabs/knp-snappy": "dev-master"
     },
     "autoload": {
         "psr-0": { "Repository": "src/"}
