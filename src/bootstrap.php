@@ -56,6 +56,7 @@ $app->register(new SilexAssetic\AsseticServiceProvider());
 $app['assetic.path_to_web'] = __DIR__ . '/../web';
 $app['assetic.options'] = array(
     'debug' => true,
+    'auto_dump_assets' => true,
 );
 $app['assetic.class_path'] = __DIR__.'/vendor/assetic/src';
 
