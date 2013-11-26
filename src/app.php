@@ -49,7 +49,10 @@ $app->get('/{locale}/{controller}/{action}.pdf', function($locale,$controller,$a
     $html = $app['twig']->render($controller.'/'.$action.'.html.twig', array( 'locale' => $locale ));
 
     $output = tempnam(sys_get_temp_dir(), 'pdf_');
-    $app['snappy.pdf']->generateFromHtml($html, $output, array(), true);
+    $app['snappy.pdf']->generateFromHtml($html, $output, array(
+        'margin-bottom' => 50,
+        'footer-html' => $request->getSchemeAndHttpHost() . '/fr/Commons/footerPdf',
+    ), true);
 
     $response = new Response(file_get_contents($output), 200, array(
         'Content-Type' =>'application/pdf',
