@@ -44,9 +44,12 @@ $app->get('/{locale}/mail/{template}', function($locale, $template, Request $req
 })->assert('action', '.+');
 
 // Create a PDF
-$app->get('/{locale}/{controller}/{action}.pdf', function($locale,$controller,$action) use ($app) {
+$app->get('/{locale}/{controller}/{action}.pdf', function($locale,$controller,$action, Request $request) use ($app) {
     $app['translator']->setLocale($locale);
-    $html = $app['twig']->render($controller.'/'.$action.'.html.twig', array( 'locale' => $locale ));
+    $html = $app['twig']->render($controller.'/'.$action.'.html.twig', array(
+        'locale' => $locale,
+        'host' => $request->getSchemeAndHttpHost(),
+    ));
 
     $output = tempnam(sys_get_temp_dir(), 'pdf_');
     $app['snappy.pdf']->generateFromHtml($html, $output, array(
