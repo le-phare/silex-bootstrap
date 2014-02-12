@@ -17,4 +17,4 @@ dependencies:
 
 test:
     override:
-        - phpunit --coverage-html $CIRCLE_ARTIFACTS/report
+        - phpunit
