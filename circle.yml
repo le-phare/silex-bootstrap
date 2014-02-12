@@ -13,7 +13,7 @@ dependencies:
         - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
     override:
         - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev install
-        - npm install less
+        - npm install -g less
 
 test:
     override:
