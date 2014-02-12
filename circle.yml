@@ -1,0 +1,13 @@
+machine:
+  php:
+    version: 5.4.10
+
+dependencies:
+    pre:
+        - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+    override:
+        - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev install
+
+test:
+    override:
+        - phpunit --coverage-html $CIRCLE_ARTIFACTS/report
