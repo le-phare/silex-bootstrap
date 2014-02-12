@@ -1,6 +1,9 @@
 machine:
+  environment:
+    NODE_BIN_PATH: /usr/bin/node
   php:
     version: 5.4.10
+
 
 dependencies:
     pre:

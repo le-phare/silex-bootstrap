@@ -59,7 +59,9 @@ $app['assetic.options'] = array(
 );
 $app['assetic.filter_manager'] = $app->share(
     $app->extend('assetic.filter_manager', function ($fm, $app) {
-        $fm->set('less', new Assetic\Filter\LessFilter('/usr/bin/js'));
+
+        $node = getenv('NODE_BIN_PATH') === false ? '/usr/bin/js' : getenv('NODE_BIN_PATH');
+        $fm->set('less', new Assetic\Filter\LessFilter($node));
 
         return $fm;
     })
