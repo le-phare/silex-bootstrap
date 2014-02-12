@@ -1,9 +1,9 @@
 // Bootstrap
-@twitterBootstrapPath = "../libs/bootstrap/less/";
+@twitterBootstrapPath: "../libs/bootstrap-3.1.0/less/";
 
 // Core variables and mixins
-@import @twitterBootstrapPath + "variables.less"; // Modify this for custom colors, font-sizes, etc
-@import @twitterBootstrapPath + "mixins.less";
+@import "@{twitterBootstrapPath}/variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "@{twitterBootstrapPath}/mixins.less";
 
 // Bootstrap local modification
 @import "bootstrap_custom.less";

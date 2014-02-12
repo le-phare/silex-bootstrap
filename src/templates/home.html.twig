@@ -3,6 +3,26 @@
 {% set page = { 'id' : 'pageAccueil' } %}
 
 {% block container_content %}
-<h1>&gt; <i class="icon-user"></i> Pouet ! </h1>
-<input type="text" placeholder="Place holder de text" value=""/>
+
+<h1><i class="fa fa-user"></i> Pouet ! </h1>
+
+<h2>Container fluid</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div style="border: 1px solid gray" class="col-md-3">col 1</div>
+        <div style="border: 1px solid gray" class="col-md-3">col 2</div>
+        <div style="border: 1px solid gray" class="col-md-3">col 3</div>
+        <div style="border: 1px solid gray" class="col-md-3">col 4</div>
+    </div>
+</div>
+
+<h2>Container</h2>
+<div class="container">
+    <div class="row">
+        <div style="border: 1px solid gray" class="col-md-3">col 1</div>
+        <div style="border: 1px solid gray" class="col-md-3">col 2</div>
+        <div style="border: 1px solid gray" class="col-md-3">col 3</div>
+        <div style="border: 1px solid gray" class="col-md-3">col 4</div>
+    </div>
+</div>
 {% endblock %}

@@ -1,8 +1,8 @@
 <?php
 
+use \Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 $app = require __DIR__.'/bootstrap.php';
@@ -10,13 +10,14 @@ $app = require __DIR__.'/bootstrap.php';
 $webDir = __DIR__.'/../web';
 
 // Home page
-$app->get('/{locale}', function($locale) use ($app) {
+$app->get('/{locale}', function ($locale) use ($app) {
     $app['translator']->setLocale($locale);
+
     return $app['twig']->render('home.html.twig', array( 'locale' => $locale ));
 })->value('locale', 'fr');;
 
 // Send an Email
-$app->get('/{locale}/mail/{template}', function($locale, $template, Request $request) use ($app) {
+$app->get('/{locale}/mail/{template}', function ($locale, $template, Request $request) use ($app) {
     $app['translator']->setLocale($locale);
     $html = $app['twig']->render('Email/'.$template.'.html.twig', array( 'locale' => $locale, 'host' => $request->getSchemeAndHttpHost() ));
 
@@ -44,7 +45,7 @@ $app->get('/{locale}/mail/{template}', function($locale, $template, Request $req
 })->assert('action', '.+');
 
 // Create a PDF
-$app->get('/{locale}/{controller}/{action}.pdf', function($locale,$controller,$action, Request $request) use ($app) {
+$app->get('/{locale}/{controller}/{action}.pdf', function ($locale,$controller,$action, Request $request) use ($app) {
     $app['translator']->setLocale($locale);
     $html = $app['twig']->render($controller.'/'.$action.'.html.twig', array(
         'locale' => $locale,
@@ -67,14 +68,34 @@ $app->get('/{locale}/{controller}/{action}.pdf', function($locale,$controller,$a
 })->assert('action', '.+');
 
 // Main route
-$app->get('/{locale}/{controller}/{action}', function($locale,$controller,$action) use ($app){
+$app->get('/{locale}/{controller}/{action}', function ($locale,$controller,$action) use ($app) {
     $app['translator']->setLocale($locale);
+
     return $app['twig']->render($controller.'/'.$action.'.html.twig', array( 'locale' => $locale ));
 })->assert('action', '.+');
 
 // Render an error page
-$app->error(function (NotFoundHttpException $e, $code) use ($app){
-    return $app['twig']->render('error/404.html.twig');
+$app->error(function (NotFoundHttpException $e, $code) use ($app) {
+    return $app['twig']->render('Exception/404.html.twig', [ 'locale' => $app['translator']->getLocale() ]);
 });
+
+// Exception routes
+$app->get('/{locale}/{code}', function ($locale, $code) use ($app) {
+    $app['translator']->setLocale($locale);
+
+    try {
+        $response = new Response($app['twig']->render('Exception/'.$code.'.html.twig', array( 'locale' => $locale )), $code);
+    } catch (Twig_Error_Loader $e) {
+        $template = __DIR__.'/templates/Exception/'.$code.'.html';
+        if (is_file($template)) {
+            $response = new Response(file_get_contents($template), $code);
+        } else {
+            throw new NotFoundHttpException("No template found");
+        }
+    }
+
+    return $response;
+
+})->assert('action', '.+');
 
 return $app;

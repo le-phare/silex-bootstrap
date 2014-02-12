@@ -1,59 +1,55 @@
 // Bootstrap
-@twitterBootstrapPath = "../libs/bootstrap/less/";
-
-// CSS Reset
-@import @twitterBootstrapPath + "reset.less";
+@twitterBootstrapPath: "../libs/bootstrap-3.1.0/less/";
 
 // Core variables and mixins
-@import @twitterBootstrapPath + "variables.less"; // Modify this for custom colors, font-sizes, etc
-@import @twitterBootstrapPath + "mixins.less";
+@import "@{twitterBootstrapPath}/variables.less";
+@import "@{twitterBootstrapPath}/mixins.less";
 
-// Grid system and page structure
-//@import @twitterBootstrapPath + "scaffolding.less";
-@import @twitterBootstrapPath + "grid.less";
-@import @twitterBootstrapPath + "layouts.less";
+// Reset
+@import "@{twitterBootstrapPath}/normalize.less";
+@import "@{twitterBootstrapPath}/print.less";
 
-// Base CSS
-@import @twitterBootstrapPath + "type.less";
-//@import @twitterBootstrapPath + "code.less";
-@import @twitterBootstrapPath + "forms.less";
-//@import @twitterBootstrapPath + "tables.less";
+// Core CSS
+@import "@{twitterBootstrapPath}/scaffolding.less";
+//@import "@{twitterBootstrapPath}/type.less";
+@import "@{twitterBootstrapPath}/code.less";
+@import "@{twitterBootstrapPath}/grid.less";
+//@import "@{twitterBootstrapPath}/tables.less";
+@import "@{twitterBootstrapPath}/forms.less";
+@import "@{twitterBootstrapPath}/buttons.less";
 
-// Components: common
-//@import "../libs/Font-Awesome/less/font-awesome.less";
-@import @twitterBootstrapPath + "dropdowns.less";
-//@import @twitterBootstrapPath + "wells.less";
-@import @twitterBootstrapPath + "component-animations.less";
-@import @twitterBootstrapPath + "close.less";
+// Components
+@import "@{twitterBootstrapPath}/component-animations.less";
+//@import "@{twitterBootstrapPath}/glyphicons.less";
+@import "@{twitterBootstrapPath}/dropdowns.less";
+@import "@{twitterBootstrapPath}/button-groups.less";
+@import "@{twitterBootstrapPath}/input-groups.less";
+@import "@{twitterBootstrapPath}/navs.less";
+@import "@{twitterBootstrapPath}/navbar.less";
+@import "@{twitterBootstrapPath}/breadcrumbs.less";
+//@import "@{twitterBootstrapPath}/pagination.less";
+//@import "@{twitterBootstrapPath}/pager.less";
+@import "@{twitterBootstrapPath}/labels.less";
+@import "@{twitterBootstrapPath}/badges.less";
+//@import "@{twitterBootstrapPath}/jumbotron.less";
+//@import "@{twitterBootstrapPath}/thumbnails.less";
+@import "@{twitterBootstrapPath}/alerts.less";
+//@import "@{twitterBootstrapPath}/progress-bars.less";
+//@import "@{twitterBootstrapPath}/media.less";
+@import "@{twitterBootstrapPath}/list-group.less";
+@import "@{twitterBootstrapPath}/panels.less";
+//@import "@{twitterBootstrapPath}/wells.less";
+@import "@{twitterBootstrapPath}/close.less";
 
-// Components: Buttons & Alerts
-@import @twitterBootstrapPath + "buttons.less";
-@import @twitterBootstrapPath + "button-groups.less";
-@import @twitterBootstrapPath + "alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
-
-// Components: Nav
-@import @twitterBootstrapPath + "navs.less";
-@import @twitterBootstrapPath + "navbar.less";
-@import @twitterBootstrapPath + "breadcrumbs.less";
-//@import @twitterBootstrapPath + "pagination.less";
-//@import @twitterBootstrapPath + "pager.less";
-
-// Components: Popovers
-@import @twitterBootstrapPath + "modals.less";
-@import @twitterBootstrapPath + "tooltip.less";
-@import @twitterBootstrapPath + "popovers.less";
-
-// Components: Misc
-//@import @twitterBootstrapPath + "thumbnails.less";
-//@import @twitterBootstrapPath + "media.less";
-@import @twitterBootstrapPath + "labels-badges.less";
-//@import @twitterBootstrapPath + "progress-bars.less";
-@import @twitterBootstrapPath + "accordion.less";
-@import @twitterBootstrapPath + "carousel.less";
-//@import @twitterBootstrapPath + "hero-unit.less";
+// Components w/ JavaScript
+@import "@{twitterBootstrapPath}/modals.less";
+@import "@{twitterBootstrapPath}/tooltip.less";
+@import "@{twitterBootstrapPath}/popovers.less";
+@import "@{twitterBootstrapPath}/carousel.less";
 
 // Utility classes
-@import @twitterBootstrapPath + "utilities.less"; // Has to be last to override when necessary
+@import "@{twitterBootstrapPath}/utilities.less";
+@import "@{twitterBootstrapPath}/responsive-utilities.less";
 
 // Bootstrap local modification
 @import "bootstrap_custom.less";
