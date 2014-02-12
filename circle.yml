@@ -1,6 +1,6 @@
 machine:
   environment:
-    NODE_BIN_PATH: /usr/bin/node
+    NODE_BIN_PATH: node
   php:
     version: 5.4.10
 
