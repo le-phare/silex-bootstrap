@@ -6,6 +6,9 @@ machine:
 
 
 dependencies:
+    cache_directories:
+        - "vendor"
+        - "cache"
     pre:
         - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
     override:
